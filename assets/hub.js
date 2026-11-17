@@ -24,6 +24,14 @@
       'font:600 14px/1 system-ui,-apple-system,"Segoe UI",sans-serif',
       'box-shadow:0 10px 24px -10px rgba(18,39,73,.55),0 0 0 1px rgba(255,255,255,.18)'
     ].join(';');
+    // The story has its own buttons in the bottom corners, so its button sits at the top center.
+    if (/\/story\//.test(location.pathname)) {
+      a.style.bottom = 'auto';
+      a.style.right = 'auto';
+      a.style.top = 'calc(14px + env(safe-area-inset-top, 0px))';
+      a.style.left = '50%';
+      a.style.transform = 'translateX(-50%)';
+    }
     a.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7fd6e3" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block"><path d="M15 6l-6 6 6 6"/></svg><span style="all:unset">All versions</span>';
     a.addEventListener('focus', function () { a.style.outline = '3px solid #7fd6e3'; a.style.outlineOffset = '3px'; });
     a.addEventListener('blur', function () { a.style.outline = 'none'; });
