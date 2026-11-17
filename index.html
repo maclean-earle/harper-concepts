@@ -3,260 +3,275 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Harper homepage concept</title>
-<meta name="robots" content="noindex">
-<meta name="description" content="Give your team real health care without an insurance plan. One flat price per employee each month. Your team gets credits to see local DFW doctors and clinics.">
-<link rel="icon" type="image/png" href="img/favicon.png">
+<meta name="robots" content="noindex, nofollow">
+<title>Harper website concepts</title>
+<link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css">
+<script>
+  try { if (localStorage.getItem('hh-concepts-ok') === '1') document.documentElement.classList.add('is-in'); } catch (e) {}
+</script>
+<style>
+  :root {
+    --navy: #122749; --teal: #1ca5ba; --teal-ink: #0e7c8c; --teal-deep: #0b6e7d; --wash: #e3f4f7;
+    --tint: #f2f8fa; --line: #d9e6ec; --body: #46566e; --err: #b42318;
+    --shadow: 0 18px 40px -22px rgba(18, 39, 73, .35), 0 3px 8px -4px rgba(18, 39, 73, .08);
+    --ease: cubic-bezier(.16, 1, .3, 1);
+  }
+  * { box-sizing: border-box; }
+  html { scrollbar-color: #b9cdd6 var(--tint); }
+  body { margin: 0; background: var(--tint); color: var(--body); font: 400 1rem/1.6 "Inter", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  ::selection { background: #c9edf2; color: var(--navy); }
+  h1, h2, h3 { margin: 0; color: var(--navy); text-wrap: balance; }
+  p { margin: 0; text-wrap: pretty; }
+  a { color: var(--teal-ink); }
+  :focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; border-radius: 8px; }
+  [tabindex="-1"]:focus { outline: none; }
+  .wrap { width: min(1160px, 100% - 48px); margin-inline: auto; }
+
+  /* Views */
+  .gate { min-height: 100vh; min-height: 100dvh; display: grid; place-items: center; padding: 32px 16px; background: linear-gradient(180deg, #eef7fa, #f6fbfc 60%, #fff); }
+  .list { display: none; }
+  .is-in .gate { display: none; }
+  .is-in .list { display: block; }
+
+  /* Sign-in */
+  .gate-card { width: min(440px, 100%); background: #fff; border-radius: 24px; padding: 40px 36px 32px; box-shadow: var(--shadow); }
+  .gate-card img { height: 56px; width: auto; display: block; }
+  .gate-card h1 { margin-top: 28px; font-size: 1.75rem; letter-spacing: -.025em; line-height: 1.15; }
+  .gate-card > p { margin-top: 8px; }
+  form { margin-top: 24px; display: grid; gap: 12px; }
+  label { color: var(--navy); font-weight: 600; font-size: .9375rem; }
+  input {
+    width: 100%; min-height: 52px; padding: 12px 16px; border-radius: 12px; border: 1.5px solid var(--line);
+    font: 500 1rem "Inter", sans-serif; color: var(--navy); background: #fff; caret-color: var(--teal-ink);
+    transition: border-color .2s var(--ease);
+  }
+  input:focus-visible { outline: none; border-color: var(--teal-ink); box-shadow: 0 0 0 4px rgba(28, 165, 186, .2); }
+  input[aria-invalid="true"] { border-color: var(--err); }
+  .err { color: var(--err); font-size: .875rem; font-weight: 500; }
+  .err:empty { display: none; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: .5em; min-height: 52px; padding: 12px 22px;
+    border-radius: 12px; border: 0; background: var(--teal-ink); color: #fff; font: 600 1rem/1.2 "Inter", sans-serif;
+    text-decoration: none; cursor: pointer; transition: background-color .2s var(--ease), transform .2s var(--ease);
+  }
+  .btn:hover { background: var(--teal-deep); color: #fff; }
+  .btn:active { transform: translateY(1px); }
+  .btn[disabled] { opacity: .65; cursor: progress; }
+  .gate-foot { margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--line); font-size: .8125rem; }
+
+  /* List */
+  .top { background: #fff; border-bottom: 1px solid var(--line); }
+  .top-in { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 76px; }
+  .top img { height: 46px; width: auto; display: block; }
+  .top-meta { display: flex; align-items: center; gap: 20px; font-size: .875rem; }
+  .signout { background: none; border: 0; padding: 8px 4px; font: 600 .875rem "Inter", sans-serif; color: var(--navy); cursor: pointer; text-decoration: underline; text-underline-offset: .2em; }
+  .intro { padding: 64px 0 40px; display: grid; gap: 14px; }
+  .intro h1 { font-size: clamp(2rem, 2.4vw + 1rem, 3rem); letter-spacing: -.03em; line-height: 1.08; }
+  .intro p { font-size: 1.125rem; max-width: 40em; }
+
+  .thumb { display: block; aspect-ratio: 16 / 10; max-width: 100%; border-radius: 14px; overflow: hidden; background: var(--wash); box-shadow: inset 0 0 0 1px rgba(18, 39, 73, .08); }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; transition: transform .7s var(--ease); }
+
+  .feature { display: grid; grid-template-columns: 1.25fr 1fr; gap: 40px; align-items: center; background: #fff; border-radius: 24px; padding: 24px; box-shadow: var(--shadow); text-decoration: none; color: inherit; }
+  .feature:hover .thumb img, .card:hover .thumb img { transform: scale(1.025); }
+  .feature-copy { display: grid; gap: 14px; padding: 8px 16px 8px 0; justify-items: start; }
+  .tag { display: inline-block; font-size: .8125rem; font-weight: 600; color: var(--teal-deep); background: var(--wash); padding: 5px 12px; border-radius: 999px; }
+  .feature h2 { font-size: clamp(1.75rem, 1.6vw + 1rem, 2.375rem); letter-spacing: -.03em; line-height: 1.1; }
+  .feature p { font-size: 1.0625rem; }
+  .feature .btn { margin-top: 8px; pointer-events: none; }
+
+  .group { padding-top: 72px; display: grid; gap: 8px; }
+  .group h2 { font-size: 1.625rem; letter-spacing: -.025em; }
+  .group > p { max-width: 40em; }
+  .grid { margin-top: 20px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+  .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .card { display: grid; gap: 14px; align-content: start; background: #fff; border-radius: 20px; padding: 14px 14px 22px; text-decoration: none; color: inherit; box-shadow: 0 1px 0 rgba(18, 39, 73, .04); transition: box-shadow .3s var(--ease), transform .3s var(--ease); }
+  .card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+  .card h3 { font-size: 1.1875rem; letter-spacing: -.02em; padding-inline: 6px; display: flex; align-items: center; gap: 8px; }
+  .card h3::after { content: ""; width: .45em; height: .45em; border-top: 2px solid var(--teal-ink); border-right: 2px solid var(--teal-ink); transform: rotate(45deg); transition: transform .25s var(--ease); }
+  .card:hover h3::after { transform: translateX(3px) rotate(45deg); }
+  .card p { padding-inline: 6px; font-size: .9375rem; }
+
+  .foot { margin-top: 88px; padding: 28px 0 40px; border-top: 1px solid var(--line); font-size: .875rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+
+  @media (max-width: 900px) {
+    .feature { grid-template-columns: 1fr; gap: 20px; padding: 14px 14px 24px; }
+    .feature-copy { padding: 0 6px; }
+    .grid, .grid.two { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .wrap { width: min(1160px, 100% - 32px); }
+    .gate-card { padding: 32px 22px 24px; }
+    .top-meta .by { display: none; }
+    .intro { padding: 40px 0 28px; }
+    .group { padding-top: 56px; }
+  }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }
+</style>
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
 
-<p style="margin:0;padding:8px 16px;background:#122749;color:#fff;text-align:center;font:500 13px/1.4 Inter,system-ui,sans-serif">Design concept by Second Shift. Not the live Harper site.</p>
-
-<header class="nav" id="top">
-  <div class="wrap nav-in">
-    <a class="logo" href="#top" aria-label="Harper Health Network, home">
-      <img src="img/harper-logo-color.png" width="708" height="325" alt="">
-    </a>
-    <nav class="links" id="nav-links" aria-label="Main">
-      <a href="#how">How it works</a>
-      <a href="#employers">For employers</a>
-      <a href="#providers">For providers</a>
-      <a href="#faq">Questions</a>
-      <a class="links-login" href="https://www.harperhealthnetwork.com/login">Log in</a>
-    </nav>
-    <div class="nav-cta">
-      <a class="nav-login" href="https://www.harperhealthnetwork.com/login">Log in</a>
-      <a class="btn btn-teal" href="#quote">Get a quote</a>
-      <button class="menu" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu"><span></span><span></span></button>
-    </div>
+<!-- Sign-in -->
+<main class="gate" id="gate">
+  <div class="gate-card">
+    <img src="assets/harper-logo-color.png" width="708" height="325" alt="Harper Health Network">
+    <h1>Harper website concepts</h1>
+    <p>Enter the password from Mac to see the designs.</p>
+    <form id="signin" novalidate>
+      <label for="pw">Password</label>
+      <input id="pw" name="password" type="password" autocomplete="current-password" required aria-describedby="pw-err">
+      <p class="err" id="pw-err" role="alert"></p>
+      <button class="btn" type="submit">See the designs</button>
+    </form>
+    <p class="gate-foot">Prepared for Harper Health Network by Second Shift.</p>
   </div>
-</header>
-
-<main id="main">
-
-  <!-- Hero -->
-  <section class="hero">
-    <div class="wrap hero-grid">
-      <div class="hero-copy">
-        <h1>Give your team real health care, <em>without an insurance plan.</em></h1>
-        <p class="lede">You pay one flat price per employee each month. Your team gets health credits to see local doctors and clinics. Nobody fills out a claim.</p>
-        <div class="hero-actions">
-          <a class="btn btn-teal btn-lg" href="#quote">Get a quote</a>
-          <a class="btn btn-line btn-lg" href="#how">See how it works</a>
-        </div>
-        <p class="open-now"><span class="dot" aria-hidden="true"></span>Open now in five Dallas Fort Worth zip codes.</p>
-      </div>
-      <figure class="hero-photo">
-        <div class="hero-img"><img src="img/person-mechanic.jpg" width="1400" height="2100" alt="A smiling mechanic stands in her auto shop." fetchpriority="high"></div>
-        <div class="visit" aria-label="A sample visit">
-          <p class="visit-tag">Sample visit</p>
-          <p class="visit-title">Sick visit at a local clinic</p>
-          <dl>
-            <div><dt>Credits used</dt><dd>1</dd></div>
-            <div><dt>Claim forms</dt><dd>None</dd></div>
-            <div><dt>Clinic paid by</dt><dd>Harper</dd></div>
-          </dl>
-        </div>
-      </figure>
-    </div>
-  </section>
-
-  <!-- The problem, in the owner's words -->
-  <section class="owner" id="employers">
-    <div class="wrap owner-grid">
-      <h2>You can't match a big company's benefits. You can still look after your people.</h2>
-      <div class="owner-copy">
-        <p>Group insurance is priced for big employers. So most small teams offer nothing, and good people leave for a hospital or a large company.</p>
-        <p>Harper gives you a simple benefit you can offer instead. One flat price per person. Real visits with local doctors.</p>
-        <p class="who"><span>Made for the small teams that keep DFW running:</span> auto shops, salons, restaurants, roofers, landscapers, daycares and the offices on Main Street.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Three people -->
-  <section class="people">
-    <div class="wrap">
-      <h2 class="people-head">One simple setup for the owner, the team and the doctor.</h2>
-      <div class="people-grid">
-        <article class="person">
-          <div class="person-img"><img src="img/person-owner.jpg" width="1400" height="935" alt="A small business owner at work in her shop." loading="lazy"></div>
-          <h3>The owner</h3>
-          <p>You pay one flat price per employee, billed once a month. That is the whole bill.</p>
-          <a class="link" href="#quote">Get a quote</a>
-        </article>
-        <article class="person">
-          <div class="person-img"><img src="img/person-stylist.jpg" width="1400" height="933" alt="A hair stylist smiles at her station." loading="lazy"></div>
-          <h3>The team</h3>
-          <p>Your employees get health credits for everyday care: sick visits, check-ups and ongoing conditions.</p>
-          <a class="link" href="#how">How credits work</a>
-        </article>
-        <article class="person">
-          <div class="person-img"><img src="img/provider-clinic.jpg" width="1250" height="1684" alt="A doctor in a white coat at her clinic." loading="lazy"></div>
-          <h3>The doctor</h3>
-          <p>Local clinics get new patients from nearby businesses, and Harper pays them directly.</p>
-          <a class="link" href="#providers">For providers</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- How it works -->
-  <section class="how" id="how">
-    <div class="wrap">
-      <div class="how-head">
-        <h2>How Harper works</h2>
-        <p>Four steps. Nobody files a claim at any of them.</p>
-      </div>
-      <ol class="steps">
-        <li class="step">
-          <span class="step-n" aria-hidden="true">1</span>
-          <h3>You pay one price</h3>
-          <p>One flat price per employee, billed once a month on the 1st. That is the whole bill.</p>
-        </li>
-        <li class="step">
-          <span class="step-n" aria-hidden="true">2</span>
-          <h3>Your team gets credits</h3>
-          <p>Each employee gets health credits. They can see what they have and where to use it.</p>
-        </li>
-        <li class="step">
-          <span class="step-n" aria-hidden="true">3</span>
-          <h3>They see a local doctor</h3>
-          <p>They pick a clinic in the Harper network. They get a code for the visit and give it to the front desk.</p>
-        </li>
-        <li class="step">
-          <span class="step-n" aria-hidden="true">4</span>
-          <h3>Harper pays the clinic</h3>
-          <p>The clinic enters the code and Harper pays them directly, on the 15th of the next month.</p>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- Promise -->
-  <section class="promise">
-    <div class="wrap promise-grid">
-      <h2>What you can count on</h2>
-      <ul class="checks">
-        <li>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
-          <div><strong>One bill a month.</strong> The same price per person, billed on the 1st.</div>
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
-          <div><strong>No claim forms.</strong> Not for you, your team or the clinic.</div>
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
-          <div><strong>No deductible to meet.</strong> A credit pays for the visit.</div>
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
-          <div><strong>We keep very little.</strong> Only a date of birth. Never what happened at a visit.</div>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Providers -->
-  <section class="providers" id="providers">
-    <div class="wrap prov-grid">
-      <figure class="prov-photo">
-        <img src="img/person-provider.jpg" width="1400" height="788" alt="A doctor talks with a mother and her son at his desk." loading="lazy">
-      </figure>
-      <div class="prov-copy">
-        <h2>For doctors and clinics: new patients from local businesses</h2>
-        <p>Harper sends you patients from small businesses in your part of DFW. At each visit the patient gives you a code. You enter it, and Harper pays you on the 15th of the next month.</p>
-        <p>There is no insurance to bill and no claim to chase.</p>
-        <a class="btn btn-line" href="mailto:contact@harperhealthnetwork.com?subject=Joining%20the%20Harper%20network">Ask to join the network</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Questions -->
-  <section class="faq" id="faq">
-    <div class="wrap faq-grid">
-      <div class="faq-head">
-        <h2>Common questions</h2>
-        <p>Not answered here? Email <a href="mailto:contact@harperhealthnetwork.com">contact@harperhealthnetwork.com</a> and a person at Harper writes back.</p>
-      </div>
-      <div class="qs">
-        <details open><summary>Is Harper insurance?</summary><p>No. You buy health credits for your team. They spend them with local providers who take Harper. There is no plan, no network fine print and no claims.</p></details>
-        <details><summary>How much does it cost?</summary><p>One flat price per employee, each month. The price depends on the size of your team, so we send you a quote.</p></details>
-        <details><summary>What can my team use credits for?</summary><p>Visits with doctors and clinics in the Harper network, such as sick visits, check-ups and care for ongoing conditions. Each visit uses a credit.</p></details>
-        <details><summary>Where does Harper work?</summary><p>Dallas Fort Worth first, in five zip codes. Austin and Houston come next.</p></details>
-        <details><summary>What do you know about my employees' health?</summary><p>Almost nothing. We keep a date of birth. We never keep what happened at a visit.</p></details>
-        <details><summary>How do providers get paid?</summary><p>Harper pays them directly on the 15th of the next month, for every visit code they entered.</p></details>
-      </div>
-    </div>
-  </section>
-
-  <!-- Quote -->
-  <section class="quote" id="quote">
-    <div class="wrap quote-grid">
-      <div class="quote-copy">
-        <h2>Get a price for your team</h2>
-        <p>Tell us your email and your team size. Harper emails you a price.</p>
-      </div>
-      <form class="quote-form" novalidate>
-        <div class="field">
-          <label for="q-email">Work email</label>
-          <input id="q-email" name="email" type="email" autocomplete="email" placeholder="you@yourshop.com" required>
-          <p class="err" id="q-email-err"></p>
-        </div>
-        <div class="field">
-          <label for="q-size">Team size</label>
-          <select id="q-size" name="size" required>
-            <option value="">Pick one</option>
-            <option>1 to 5 people</option>
-            <option>6 to 15 people</option>
-            <option>16 to 25 people</option>
-            <option>More than 25 people</option>
-          </select>
-          <p class="err" id="q-size-err"></p>
-        </div>
-        <button class="btn btn-white btn-lg" type="submit">Send me a quote</button>
-        <p class="form-msg" role="status" aria-live="polite"></p>
-      </form>
-    </div>
-  </section>
 </main>
 
-<footer class="foot">
-  <div class="wrap foot-grid">
-    <div class="foot-brand">
-      <img class="foot-logo" src="img/harper-logo-paper.png" width="708" height="325" alt="Harper Health Network">
-      <p>Health care for small teams. Made in Euless, Texas.</p>
+<!-- Versions -->
+<div class="list" id="list">
+  <header class="top">
+    <div class="wrap top-in">
+      <img src="assets/harper-logo-color.png" width="708" height="325" alt="Harper Health Network">
+      <div class="top-meta">
+        <span class="by">Prepared by Second Shift</span>
+        <button class="signout" type="button" id="signout">Sign out</button>
+      </div>
     </div>
-    <nav class="foot-col" aria-label="Employers">
-      <p class="foot-h">Employers</p>
-      <a href="#how">How it works</a>
-      <a href="#quote">Get a quote</a>
-      <a href="#faq">Questions</a>
-    </nav>
-    <nav class="foot-col" aria-label="Providers">
-      <p class="foot-h">Providers</p>
-      <a href="#providers">For providers</a>
-      <a href="mailto:contact@harperhealthnetwork.com?subject=Joining%20the%20Harper%20network">Join the network</a>
-    </nav>
-    <nav class="foot-col" aria-label="Company">
-      <p class="foot-h">Company</p>
-      <a href="mailto:contact@harperhealthnetwork.com">Contact us</a>
-      <a href="https://www.harperhealthnetwork.com/privacy">Privacy</a>
-      <a href="https://www.harperhealthnetwork.com/terms">Terms</a>
-      <a href="https://www.harperhealthnetwork.com/login">Log in</a>
-    </nav>
-  </div>
-  <div class="wrap foot-legal">
-    <p>&copy; 2026 Harper Health Network, a d.b.a. of Pillar Wellness Care, LLC. Harper is not insurance.</p>
-    <p>People shown are stand-in photos.</p>
-  </div>
-</footer>
+  </header>
 
-<script src="js/site.js"></script>
+  <main class="wrap">
+    <section class="intro">
+      <h1>Pick a version to click through</h1>
+      <p>Each one is a full homepage you can scroll and click. Use "All versions" in the bottom corner to come back here. These are design ideas, not the live site. People in the photos are stand-ins.</p>
+    </section>
+
+    <a class="feature" href="round-4/">
+      <span class="thumb"><img src="assets/thumbs/round-4.jpg" width="960" height="600" alt="The Refresh homepage, with a mechanic in her shop and a sample visit card."></span>
+      <span class="feature-copy">
+        <span class="tag">Closest to your current site</span>
+        <h2>The Refresh</h2>
+        <p>Your logo, colors and layout, kept. Clearer words, real people, and only claims Harper can stand behind.</p>
+        <span class="btn">Open The Refresh</span>
+      </span>
+    </a>
+
+    <section class="group" aria-labelledby="g-newer">
+      <h2 id="g-newer">Two newer directions</h2>
+      <p>A warmer magazine-style page, and an animated story you scroll through.</p>
+      <div class="grid two">
+        <a class="card" href="round-3/">
+          <span class="thumb"><img src="assets/thumbs/round-3.jpg" width="960" height="600" alt="" loading="lazy"></span>
+          <h3>Local Editorial</h3>
+          <p>Local people in every section, a walk-through of the four steps, and a quote form at the end.</p>
+        </a>
+        <a class="card" href="story/">
+          <span class="thumb"><img src="assets/thumbs/story.jpg" width="960" height="499" alt="" loading="lazy" style="object-position:left top"></span>
+          <h3>The Harper Story</h3>
+          <p>Follow Harper from a sick day to a local doctor, and see how the same day ends without Harper. Press Enter, then scroll.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="group" aria-labelledby="g-first">
+      <h2 id="g-first">First round: three bold ideas</h2>
+      <p>Each one tells the Harper story through a different everyday object.</p>
+      <div class="grid">
+        <a class="card" href="round-1/option-1-replica/">
+          <span class="thumb"><img src="assets/thumbs/round-1_option-1-replica.jpg" width="960" height="499" alt="" loading="lazy" style="object-position:center top"></span>
+          <h3>Bright and Simple</h3>
+          <p>A light, airy page with a big headline and smooth motion.</p>
+        </a>
+        <a class="card" href="round-1/option-2-main-street/">
+          <span class="thumb"><img src="assets/thumbs/round-1_option-2-main-street.jpg" width="960" height="600" alt="" loading="lazy"></span>
+          <h3>Main Street</h3>
+          <p>A painted storefront. Scroll down the street, one door at a time.</p>
+        </a>
+        <a class="card" href="round-1/option-3-triplicate/">
+          <span class="thumb"><img src="assets/thumbs/round-1_option-3-triplicate.jpg" width="960" height="600" alt="" loading="lazy"></span>
+          <h3>The Voucher</h3>
+          <p>One visit on a paper form, with a copy for the owner, the employee and the clinic.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="group" aria-labelledby="g-calm">
+      <h2 id="g-calm">Second round: calm and modern</h2>
+      <p>Quiet, polished pages in the style of modern health companies.</p>
+      <div class="grid">
+        <a class="card" href="round-2/option-1-replica/">
+          <span class="thumb"><img src="assets/thumbs/round-2_option-1-replica.jpg" width="960" height="600" alt="" loading="lazy"></span>
+          <h3>The Network</h3>
+          <p>Your team at the center, connected to local care.</p>
+        </a>
+        <a class="card" href="round-2/option-2-ledger/">
+          <span class="thumb"><img src="assets/thumbs/round-2_option-2-ledger.jpg" width="960" height="600" alt="" loading="lazy"></span>
+          <h3>A Month with Harper</h3>
+          <p>Harper navy and teal. One month of one credit, told on a calendar.</p>
+        </a>
+        <a class="card" href="round-2/option-3-front-desk/">
+          <span class="thumb"><img src="assets/thumbs/round-2_option-3-front-desk.jpg" width="960" height="600" alt="" loading="lazy"></span>
+          <h3>Front Desk</h3>
+          <p>One visit, told by the people in it. Quiet and photo-led.</p>
+        </a>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <span>Design concepts for Harper Health Network, d.b.a. of Pillar Wellness Care, LLC.</span>
+      <span>Prepared by Second Shift.</span>
+    </footer>
+  </main>
+</div>
+
+<script>
+(function () {
+  var KEY = 'hh-concepts-ok';
+  var HASH = '112c75ab87e3cbec10d9cbcb11a53597c1325654c46650f3966687e8860c48a5';
+  var root = document.documentElement;
+  var form = document.getElementById('signin');
+  var pw = document.getElementById('pw');
+  var err = document.getElementById('pw-err');
+  var btn = form.querySelector('button');
+
+  function hex(buf) {
+    return Array.prototype.map.call(new Uint8Array(buf), function (b) { return ('0' + b.toString(16)).slice(-2); }).join('');
+  }
+  function fail(text) {
+    err.textContent = text;
+    pw.setAttribute('aria-invalid', 'true');
+    pw.focus(); pw.select();
+  }
+  pw.addEventListener('input', function () { if (err.textContent) { err.textContent = ''; pw.removeAttribute('aria-invalid'); } });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var v = pw.value.trim();
+    if (!v) return fail('Enter the password to continue.');
+    if (!(window.crypto && crypto.subtle)) return fail('This browser cannot check the password. Try a current version of Chrome, Safari or Edge.');
+    btn.disabled = true; btn.textContent = 'Checking...';
+    crypto.subtle.digest('SHA-256', new TextEncoder().encode(v)).then(function (buf) {
+      btn.disabled = false; btn.textContent = 'See the designs';
+      if (hex(buf) !== HASH) return fail('That password is not right. Check the email from Mac and try again.');
+      try { localStorage.setItem(KEY, '1'); } catch (x) {}
+      root.classList.add('is-in');
+      window.scrollTo(0, 0);
+      document.querySelector('.intro h1').setAttribute('tabindex', '-1');
+      document.querySelector('.intro h1').focus();
+    });
+  });
+
+  document.getElementById('signout').addEventListener('click', function () {
+    try { localStorage.removeItem(KEY); } catch (x) {}
+    root.classList.remove('is-in');
+    pw.value = '';
+    pw.focus();
+  });
+
+  if (!root.classList.contains('is-in')) pw.focus();
+})();
+</script>
 </body>
 </html>
